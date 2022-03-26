@@ -17,9 +17,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-/**
- * Created by jt on 7/13/18.
- */
 @Setter
 @Getter
 @NoArgsConstructor
