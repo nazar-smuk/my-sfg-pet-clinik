@@ -1,13 +1,7 @@
 package com.example.mysfgpetclinik.services;
 
-import com.example.mysfgpetclinik.model.Pet;
-import java.util.Set;
+import com.example.mysfgpetclinik.model.Vet;
 
-public interface VetService {
+public interface VetService extends CrudService<Vet, Long> {
 
-  Pet findById(Long id);
-
-  Pet save(Pet pet);
-
-  Set<Pet> findAll();
 }
