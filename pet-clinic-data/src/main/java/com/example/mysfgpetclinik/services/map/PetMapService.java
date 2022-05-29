@@ -2,13 +2,14 @@ package com.example.mysfgpetclinik.services.map;
 
 import com.example.mysfgpetclinik.model.Pet;
 import com.example.mysfgpetclinik.services.CrudService;
+import com.example.mysfgpetclinik.services.PetService;
 import java.util.Set;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
 @Profile({"default", "map"})
-public class PetMapService extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
