@@ -4,12 +4,8 @@ import com.example.mysfgpetclinik.model.Owner;
 import com.example.mysfgpetclinik.model.Vet;
 import com.example.mysfgpetclinik.services.OwnerService;
 import com.example.mysfgpetclinik.services.VetService;
-import com.example.mysfgpetclinik.services.map.OwnerMapService;
-import com.example.mysfgpetclinik.services.map.VetMapService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
 
 
 @Component
@@ -18,9 +14,9 @@ public class DataLoader implements CommandLineRunner {
   private final OwnerService ownerService;
   private final VetService vetService;
 
-  public DataLoader() {
-    ownerService = new OwnerMapService();
-    vetService = new VetMapService();
+  public DataLoader(OwnerService ownerService, VetService vetService) {
+    this.ownerService = ownerService;
+    this.vetService = vetService;
   }
 
   @Override
