@@ -5,10 +5,12 @@ import com.example.mysfgpetclinik.model.Pet;
 import com.example.mysfgpetclinik.model.PetType;
 import com.example.mysfgpetclinik.model.Speciality;
 import com.example.mysfgpetclinik.model.Vet;
+import com.example.mysfgpetclinik.model.Visit;
 import com.example.mysfgpetclinik.services.OwnerService;
 import com.example.mysfgpetclinik.services.PetTypeService;
 import com.example.mysfgpetclinik.services.SpecialtyService;
 import com.example.mysfgpetclinik.services.VetService;
+import com.example.mysfgpetclinik.services.VisitService;
 import java.time.LocalDate;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -21,13 +23,15 @@ public class DataLoader implements CommandLineRunner {
   private final VetService vetService;
   private final PetTypeService petTypeService;
   private final SpecialtyService specialtyService;
+  private final VisitService visitService;
 
   public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                    SpecialtyService specialtyService) {
+                    SpecialtyService specialtyService, VisitService visitService) {
     this.ownerService = ownerService;
     this.vetService = vetService;
     this.petTypeService = petTypeService;
     this.specialtyService = specialtyService;
+    this.visitService = visitService;
   }
 
   @Override
@@ -92,6 +96,13 @@ public class DataLoader implements CommandLineRunner {
     owner2.getPets().add(fionasCat);
 
     ownerService.save(owner2);
+
+    Visit catVisit = new Visit();
+    catVisit.setPet(fionasCat);
+    catVisit.setDate(LocalDate.now());
+    catVisit.setDescription("Sneezy Kitty");
+
+    visitService.save(catVisit);
 
     System.out.println("Loaded Owners....");
 
