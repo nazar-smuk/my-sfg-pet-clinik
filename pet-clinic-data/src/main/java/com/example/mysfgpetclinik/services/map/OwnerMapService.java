@@ -7,9 +7,11 @@ import com.example.mysfgpetclinik.services.PetService;
 import com.example.mysfgpetclinik.services.PetTypeService;
 import java.util.List;
 import java.util.Set;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
